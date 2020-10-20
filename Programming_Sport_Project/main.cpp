@@ -6,13 +6,11 @@ using namespace std;
 
 
 int check_char(int x){
-    while(cin.fail()){
-            if(cin.fail()){
-                cin.clear();                                                                        //to clear the buffer memory
-                cin.ignore(numeric_limits<streamsize>::max(),'\n');                                //ignore all the input the user has provided
-                cout << "Please enter a valid input : ";
-                cin >> x;
-            }
+    while(cin.fail() || x<0 || x>10){
+        cin.clear();                                                                        //to clear the buffer memory
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');                                //ignore all the input the user has provided
+        cout << "Please enter a valid input : ";
+        cin >> x;
     }
     return x;
 }
@@ -30,8 +28,9 @@ int check_limit(int x){
 
 int get_input (int x){                                                                              //check for correct user input
     cin>>x;
-    x = check_char(x);
     x = check_limit(x);
+    x = check_char(x);
+
 
 
     return x;
